@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.capstones.anative.android.sdkplugintest">
+    <application>
+        <meta-data android:name="SDKPlugin_Test" android:value="cn.capstones.anative.android.sdkplugintest.SDKPluginTest"/>
+    </application>
+</manifest>
