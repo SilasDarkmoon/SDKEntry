@@ -1,0 +1,19 @@
+{
+
+    "name": "cn.capstones.sdkentry",
+
+    "displayName": "Capstone SDK Entry",
+
+    "version": "0.0.1",
+
+    "unity": "2018.3",
+
+    "description": "Capstone SDK Entry",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}
