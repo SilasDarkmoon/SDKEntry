@@ -20,6 +20,9 @@ extern NSObject<UIApplicationDelegate>* EntryApplicationController;
 @interface SubSDK : NSObject
 + (void)regSubSDK:(SubSDK*)sub;
 
++ (void)initEventsStatic;
+- (void)initEvents;
+
 + (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptionsStatic:(NSDictionary*)launchOptions;
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions;
 @end

@@ -17,7 +17,13 @@ namespace Capstones.UnityEngineEx.Native
                 jc.CallStatic("Init");
             }
         }
-
+#elif UNITY_IOS && !UNITY_EDITOR
+        [DllImport("__Internal", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void InitEventsForSubSDKs();
+        private static void Init()
+        {
+            InitEventsForSubSDKs();
+        }
 #else
         private static void Init() { }
 #endif

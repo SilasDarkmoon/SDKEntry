@@ -21,6 +21,18 @@ NSObject<UIApplicationDelegate>* EntryApplicationController;
     [SubSDKs addObject:sub];
 }
 
++ (void)initEventsStatic
+{
+    for (int i = 0; i < SubSDKs.count; ++i)
+    {
+        SubSDK* subsdk = [SubSDKs objectAtIndex:i];
+        [subsdk initEvents];
+    }
+}
+- (void)initEvents
+{
+}
+
 + (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptionsStatic:(NSDictionary*)launchOptions
 {
     for (int i = 0; i < SubSDKs.count; ++i)
@@ -37,6 +49,13 @@ NSObject<UIApplicationDelegate>* EntryApplicationController;
 
 @end
 
+extern "C"
+{
+void InitEventsForSubSDKs()
+{
+    [SubSDK initEventsStatic];
+}
+}
 
 @interface SDKAppController : UnityAppController
 @end
