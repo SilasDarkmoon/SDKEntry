@@ -11,6 +11,7 @@ namespace Capstones.UnityEngineEx.Native
 #if UNITY_ANDROID && !UNITY_EDITOR
         private static void Init()
         {
+            PlatDependant.LogError("Android SDK Entry Init!!!!");
             using (AndroidJavaClass jc = new AndroidJavaClass("cn.capstones.anative.android.sdkplugin.SDKPlugin"))
             {
                 jc.CallStatic("Init");
@@ -21,7 +22,7 @@ namespace Capstones.UnityEngineEx.Native
         private static void Init() { }
 #endif
 
-        [UnityEngine.RuntimeInitializeOnLoadMethod]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnUnityStart()
         {
             ResManager.AddInitItem(new ResManager.ActionInitItem(ResManager.LifetimeOrders.CrossEvent + 7, Init, null));
