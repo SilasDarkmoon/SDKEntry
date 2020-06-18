@@ -21,11 +21,15 @@ namespace Capstones.UnityEditorEx
                     string amani = "EditorOutput/Intermediate/AndroidManifest.xml";
                     //if (!PlatDependant.IsFileExist(amani))
                     {
-                        var omani = EditorApplication.applicationContentsPath + @"\PlaybackEngines\AndroidPlayer\Apk\AndroidManifest.xml";
+                        var omani = EditorApplication.applicationContentsPath + "/PlaybackEngines/AndroidPlayer/Apk/AndroidManifest.xml";
                         if (!PlatDependant.IsFileExist(omani))
                         {
-                            Debug.LogError("Cannot find original AndroidManifest.xml");
-                            return;
+                            omani = EditorApplication.applicationContentsPath + "/PlaybackEngines/AndroidPlayer/Apk/UnityManifest.xml";
+                            if (!PlatDependant.IsFileExist(omani))
+                            {
+                                Debug.LogError("Cannot find original AndroidManifest.xml");
+                                return;
+                            }
                         }
 
                         PlatDependant.CopyFile(omani, amani);
