@@ -27,4 +27,9 @@ REG_SUBSDK(SubSDKTest)
     return YES;
 }
 
+- (BOOL)application:(UIApplication*)app openURL:(NSURL*)url options:(NSDictionary<NSString*, id>*)options
+{
+    return YES;
+}
+
 @end
