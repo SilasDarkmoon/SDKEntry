@@ -47,6 +47,21 @@ NSObject<UIApplicationDelegate>* EntryApplicationController;
     return YES;
 }
 
+- (BOOL)application:(UIApplication*)app openURL:(NSURL*)url options:(NSDictionary<NSString*, id>*)options
+{
+    return YES;
+}
+
++ (BOOL)application:(UIApplication*)app openURLStatic:(NSURL*)url options:(NSDictionary<NSString*, id>*)options
+{
+    for (int i = 0; i < SubSDKs.count; ++i)
+    {
+        SubSDK* subsdk = [SubSDKs objectAtIndex:i];
+        [subsdk application:app openURL:url options:options];
+    }
+    return YES;
+}
+
 @end
 
 extern "C"
@@ -63,12 +78,22 @@ void InitEventsForSubSDKs()
 IMPL_APP_CONTROLLER_SUBCLASS (SDKAppController)
 
 @implementation SDKAppController
- 
+
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    ::printf("$this is from application didFinishLaunchingWithOptions!\n");
     EntryApplicationController = self;
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     [SubSDK application:application didFinishLaunchingWithOptionsStatic:launchOptions];
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication*)app openURL:(NSURL*)url options:(NSDictionary<NSString*, id>*)options
+{
+    ::printf("$this is from application openURL!\n");
+    [super application:app openURL:url options:options];
+    [SubSDK application:app openURLStatic:url options:options];
     return YES;
 }
 
