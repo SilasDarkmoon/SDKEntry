@@ -32,4 +32,8 @@ REG_SUBSDK(SubSDKTest)
     return YES;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication*)application
+{
+}
+
 @end

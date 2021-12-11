@@ -62,6 +62,19 @@ NSObject<UIApplicationDelegate>* EntryApplicationController;
     return YES;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication*)application
+{
+}
+
++ (void)applicationDidBecomeActiveStatic:(UIApplication*)application
+{
+    for (int i = 0; i < SubSDKs.count; ++i)
+    {
+        SubSDK* subsdk = [SubSDKs objectAtIndex:i];
+        [subsdk applicationDidBecomeActive:application];
+    }
+}
+
 @end
 
 extern "C"
@@ -95,6 +108,12 @@ IMPL_APP_CONTROLLER_SUBCLASS (SDKAppController)
     [super application:app openURL:url options:options];
     [SubSDK application:app openURLStatic:url options:options];
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication*)application
+{
+    [super applicationDidBecomeActive:application];
+    [SubSDK applicationDidBecomeActiveStatic:application];
 }
 
 @end

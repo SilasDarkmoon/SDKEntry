@@ -27,5 +27,7 @@ extern NSObject<UIApplicationDelegate>* EntryApplicationController;
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions;
 - (BOOL)application:(UIApplication*)app openURL:(NSURL*)url options:(NSDictionary<NSString*, id>*)options;
 + (BOOL)application:(UIApplication*)app openURLStatic:(NSURL*)url options:(NSDictionary<NSString*, id>*)options;
+- (void)applicationDidBecomeActive:(UIApplication*)application;
++ (void)applicationDidBecomeActiveStatic:(UIApplication*)application;
 @end
 
