@@ -7,6 +7,8 @@
 #import "SubSDK.h"
 #import "UnityAppController.h"
 
+#include "UI/UnityView.h"
+
 NSMutableArray* SubSDKs;
 NSObject<UIApplicationDelegate>* EntryApplicationController;
 
@@ -98,7 +100,11 @@ IMPL_APP_CONTROLLER_SUBCLASS (SDKAppController)
     EntryApplicationController = self;
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     [SubSDK application:application didFinishLaunchingWithOptionsStatic:launchOptions];
-    
+
+#if (PLATFORM_IOS && defined(__IPHONE_13_0))
+    if (@available(iOS 13, *))
+        _unityView.backgroundColor = [UIColor blackColor];
+#endif
     return YES;
 }
 
