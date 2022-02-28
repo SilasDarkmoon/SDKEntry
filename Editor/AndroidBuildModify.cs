@@ -86,7 +86,11 @@ namespace Capstones.UnityEditorEx
                         }
                         else
                         {
+#if UNITY_2020_2_OR_NEWER || NETCOREAPP3_0 || NETCOREAPP3_1 || NETCOREAPP3_0_OR_GREATER || NETSTANDARD2_1 || NETSTANDARD2_1_OR_GREATER
                             if (line.Contains("unity", StringComparison.InvariantCultureIgnoreCase))
+#else
+                            if (line.ToLower().Contains("unity"))
+#endif
                             {
                                 return sub;
                             }
