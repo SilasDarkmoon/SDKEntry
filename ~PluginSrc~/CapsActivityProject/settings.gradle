@@ -1,1 +1,2 @@
 include ':app', ':capsactivity', ':sdkplugin', ':sdkplugintest'
+include ':sdkpluginwebview'

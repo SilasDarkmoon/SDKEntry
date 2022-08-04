@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.capstones.anative.sdkpluginwebview">
+    <application>
+        <meta-data android:name="SDKPlugin_WebView" android:value="cn.capstones.anative.sdkpluginwebview.SDKPluginWebView"/>
+    </application>
+</manifest>
