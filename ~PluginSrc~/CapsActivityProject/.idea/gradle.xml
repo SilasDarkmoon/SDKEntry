@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/capsactivity" />
             <option value="$PROJECT_DIR$/sdkplugin" />
+            <option value="$PROJECT_DIR$/sdkpluginfdrecorder" />
             <option value="$PROJECT_DIR$/sdkplugintest" />
             <option value="$PROJECT_DIR$/sdkpluginwebview" />
           </set>
