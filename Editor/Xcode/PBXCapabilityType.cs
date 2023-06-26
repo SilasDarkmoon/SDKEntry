@@ -1,4 +1,4 @@
-﻿#if UNITY_XCODE_API_BUILD
+#if UNITY_XCODE_API_BUILD
 namespace UnityEditor.iOS.Xcode
 #else
 namespace UnityEditor.iOS.Xcode.Custom
@@ -29,6 +29,7 @@ namespace UnityEditor.iOS.Xcode.Custom
         public static readonly PBXCapabilityType WirelessAccessoryConfiguration = new PBXCapabilityType("com.apple.WAC", true, "ExternalAccessory.framework");
 		// add for midas  2018-05-08
 		public static readonly PBXCapabilityType Keychain = new PBXCapabilityType ("com.apple.Keychain", true);
+        public static readonly PBXCapabilityType SignInWithApple = new PBXCapabilityType("com.apple.signin", true, "AuthenticationServices.framework");
 
         private readonly string m_ID;
         private readonly bool m_RequiresEntitlements;
