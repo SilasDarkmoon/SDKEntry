@@ -96,8 +96,8 @@ IMPL_APP_CONTROLLER_SUBCLASS (SDKAppController)
 {
     ::printf("$this is from application didFinishLaunchingWithOptions!\n");
     EntryApplicationController = self;
-    [super application:application didFinishLaunchingWithOptions:launchOptions];
     [SubSDK application:application didFinishLaunchingWithOptionsStatic:launchOptions];
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
     
     return YES;
 }
